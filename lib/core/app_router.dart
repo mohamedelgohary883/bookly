@@ -1,3 +1,4 @@
+import 'package:bookly/features/Home/presentaion/views/book_details_view.dart';
 import 'package:bookly/features/Home/presentaion/views/home_view.dart';
 import 'package:bookly/features/splash/presentaion/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,12 @@ class AppRouter {
         path: '/homeview',
         builder: (context, state) {
           return HomeView();
+        },
+      ),
+      GoRoute(
+        path: '/bookdetailsview',
+        builder: (context, state) {
+          return BookDetailsView();
         },
       ),
     ],

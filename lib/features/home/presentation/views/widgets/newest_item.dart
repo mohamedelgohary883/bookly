@@ -17,7 +17,7 @@ class NewestItem extends StatelessWidget {
         },
         child: Row(
           children: [
-            CustomBookImage(),
+            CustomBookImage(imageUrl: ''),
             SizedBox(width: MediaQuery.of(context).size.width * 0.05),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

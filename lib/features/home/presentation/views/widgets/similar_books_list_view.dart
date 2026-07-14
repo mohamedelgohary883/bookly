@@ -1,4 +1,4 @@
-import 'package:bookly/core/assets.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class SimilarBooksListView extends StatelessWidget {
@@ -12,17 +12,7 @@ class SimilarBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 8,
         itemBuilder: (context, index) {
-          return AspectRatio(
-            aspectRatio: 2.2 / 3,
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Assets.book1),
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-          );
+          return CustomBookImage();
         },
       ),
     );

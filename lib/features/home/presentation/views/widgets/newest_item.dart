@@ -1,5 +1,5 @@
-import 'package:bookly/core/assets.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,17 +17,7 @@ class NewestItem extends StatelessWidget {
         },
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.2 / 3,
-              child: Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(Assets.book1),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ),
+            CustomBookImage(),
             SizedBox(width: MediaQuery.of(context).size.width * 0.05),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -34,7 +34,7 @@ class BookDetailsSection extends StatelessWidget {
 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [BookRating()],
+          children: [BookRating(rating: 52, count: 52)],
         ),
         SizedBox(height: 30),
         ElevatedButton(

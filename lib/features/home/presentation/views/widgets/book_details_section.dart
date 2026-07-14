@@ -1,5 +1,5 @@
-import 'package:bookly/features/Home/presentaion/views/widget/book_rating.dart';
-import 'package:bookly/features/Home/presentaion/views/widget/custom_book_image.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -34,7 +34,7 @@ class BookDetailsSection extends StatelessWidget {
 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Bookrating()],
+          children: [BookRating()],
         ),
         SizedBox(height: 30),
         ElevatedButton(

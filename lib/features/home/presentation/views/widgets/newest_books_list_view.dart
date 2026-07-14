@@ -1,4 +1,4 @@
-import 'package:bookly/features/Home/presentaion/views/widget/newest_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/newest_item.dart';
 import 'package:flutter/material.dart';
 
 class NewestBooksListView extends StatelessWidget {

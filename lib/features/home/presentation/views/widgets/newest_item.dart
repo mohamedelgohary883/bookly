@@ -1,5 +1,5 @@
 import 'package:bookly/core/assets.dart';
-import 'package:bookly/features/Home/presentaion/views/widget/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +59,7 @@ class NewestItem extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.2),
-                    Bookrating(),
+                    BookRating(),
                   ],
                 ),
               ],

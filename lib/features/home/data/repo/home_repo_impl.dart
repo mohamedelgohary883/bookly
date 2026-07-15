@@ -33,7 +33,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?orderBy=newest&q=subject:Programming',
+        endPoint: 'volumes?orderBy=newest&q=subject:sports',
       );
       List<BookModel> books = [];
       for (var book in data['items']) {

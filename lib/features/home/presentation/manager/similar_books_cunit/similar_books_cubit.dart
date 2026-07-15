@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'similar_books_state.dart';
 
 class SimilarBooksCubit extends Cubit<SimilarBooksState> {
-  SimilarBooksCubit({required this.homeRepo}) : super(SimilarBooksInitial());
+  SimilarBooksCubit(this.homeRepo) : super(SimilarBooksInitial());
   final HomeRepo homeRepo;
   Future<void> fetchSimilarbooks({required String category}) async {
     emit(SimilarBooksLoading());

@@ -14,7 +14,7 @@ class NewestItem extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.18,
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push('/bookdetailsview');
+          GoRouter.of(context).push('/bookdetailsview', extra: bookModel);
         },
         child: Row(
           children: [

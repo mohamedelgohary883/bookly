@@ -1,11 +1,12 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details_appbar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details_section.dart';
 import 'package:bookly/features/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +15,7 @@ class BookDetailsViewBody extends StatelessWidget {
         child: Column(
           children: [
             SafeArea(child: BookDetailsAppbar()),
-            BookDetailsSection(),
+            BookDetailsSection(bookModel: bookModel),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Align(
               alignment: Alignment.centerLeft,
@@ -24,7 +25,7 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            SimilarBooksListView(),
+            SimilarBooksListView(bookModel: bookModel),
           ],
         ),
       ),

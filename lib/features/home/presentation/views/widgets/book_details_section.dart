@@ -1,33 +1,37 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.30,
-          child: CustomBookImage(imageUrl: ''),
+          child: CustomBookImage(
+            imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
+          ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.04),
         Text(
-          'The jungle book',
+          bookModel.volumeInfo!.title!,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: GoogleFonts.allertaStencil(
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(height: 5),
 
         Text(
-          'Mohamed Elgohary',
+          bookModel.volumeInfo!.authors![0],
           style: TextStyle(color: Colors.grey, fontSize: 18),
         ),
         SizedBox(height: 5),

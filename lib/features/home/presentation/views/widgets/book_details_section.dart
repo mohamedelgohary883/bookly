@@ -4,6 +4,7 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_book_imag
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.bookModel});
@@ -21,7 +22,7 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(height: MediaQuery.of(context).size.height * 0.04),
         Text(
           textAlign: TextAlign.center,
-          bookModel.volumeInfo!.title!,
+          bookModel.volumeInfo?.title ?? 'unknown title',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: GoogleFonts.allertaStencil(
@@ -32,7 +33,7 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(height: 5),
 
         Text(
-          bookModel.volumeInfo!.authors![0],
+          bookModel.volumeInfo?.authors?[0] ?? 'unknown author',
           style: TextStyle(color: Colors.grey, fontSize: 18),
         ),
         SizedBox(height: 5),
@@ -42,20 +43,26 @@ class BookDetailsSection extends StatelessWidget {
           children: [BookRating(rating: 52, count: 52)],
         ),
         SizedBox(height: 30),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xffEF8262),
-            minimumSize: Size(200, 50),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(10),
-            ),
-          ),
-          onPressed: () {},
-          child: Text(
-            'Free preview',
-            style: TextStyle(color: Colors.white, fontSize: 24),
-          ),
-        ),
+        bookModel.volumeInfo?.previewLink == null
+            ? Text('Not available')
+            : ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xffEF8262),
+                  minimumSize: Size(200, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10),
+                  ),
+                ),
+                onPressed: () async {
+                  await launchUrl(
+                    Uri.parse(bookModel.volumeInfo!.previewLink!),
+                  );
+                },
+                child: Text(
+                  'Free preview',
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ),
       ],
     );
   }

@@ -54,7 +54,7 @@ class NewestItem extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.2),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.16),
                       BookRating(rating: 52, count: 52),
                     ],
                   ),

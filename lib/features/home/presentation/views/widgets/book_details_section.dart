@@ -20,6 +20,7 @@ class BookDetailsSection extends StatelessWidget {
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.04),
         Text(
+          textAlign: TextAlign.center,
           bookModel.volumeInfo!.title!,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

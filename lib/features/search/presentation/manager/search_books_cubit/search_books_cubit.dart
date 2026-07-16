@@ -11,6 +11,7 @@ class SearchBooksCubit extends Cubit<SearchBooksState> {
   Future<void> searchBooks({required String query}) async {
     emit(SearchBooksLoading());
     var result = await homeRepo.searchBooks(query: query);
+    if (isClosed) return;
     result.fold(
       (failure) {
         emit(SearchBooksFailure(errorMessage: failure.errMessage));

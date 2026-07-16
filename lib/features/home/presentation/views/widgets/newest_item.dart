@@ -22,40 +22,44 @@ class NewestItem extends StatelessWidget {
               imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
             ),
             SizedBox(width: MediaQuery.of(context).size.width * 0.05),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(
-                    bookModel.volumeInfo!.title!,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.allertaStencil(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  bookModel.volumeInfo?.authors![0],
-                  style: TextStyle(color: Colors.grey, fontSize: 18),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Free',
-                      style: TextStyle(
-                        fontSize: 24,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Text(
+                      bookModel.volumeInfo?.title ?? 'unknown title',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.allertaStencil(
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.2),
-                    BookRating(rating: 52, count: 52),
-                  ],
-                ),
-              ],
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    bookModel.volumeInfo?.authors?[0] ?? 'unknown authors',
+                    style: TextStyle(color: Colors.grey, fontSize: 18),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Free',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.2),
+                      BookRating(rating: 52, count: 52),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
